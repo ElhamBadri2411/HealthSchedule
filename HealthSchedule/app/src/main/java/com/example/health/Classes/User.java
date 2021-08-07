@@ -7,7 +7,13 @@ public abstract class User {
     private String gender;
     private String password;
 
-    public User() {}
+    public User() {
+        email = "";
+        firstName = "";
+        lastName = "";
+        gender = "";
+        password = "";
+    }
 
     public User(String email, String firstName, String lastName, String gender, String password){
         this.email = email;
@@ -30,7 +36,7 @@ public abstract class User {
         return email;
     }
 
-    public String getName() {
+    public String name() {
         return firstName + " " + lastName;
     }
 

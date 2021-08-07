@@ -80,7 +80,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void updateUser(User user) {
         this.user = user;
-        setTitle("Hi, " + user.getName() + "!");
+        setTitle("Hi, " + user.name() + "!");
         adapter.update(user);
     }
 }

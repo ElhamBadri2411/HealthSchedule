@@ -1,27 +1,7 @@
 package com.example.health.Classes;
 
 public abstract class User {
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String gender;
-    private String password;
-
-    public User() {
-        email = "";
-        firstName = "";
-        lastName = "";
-        gender = "";
-        password = "";
-    }
-
-    public User(String email, String firstName, String lastName, String gender, String password){
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.password = password;
-    }
+    UserInfo info;
 
     public static String getID(String email) {
         String res = "";
@@ -33,46 +13,44 @@ public abstract class User {
     public abstract String getIdentity();
 
     public String getEmail() {
-        return email;
+        return info.getEmail();
     }
 
     public String name() {
-        return firstName + " " + lastName;
+        return info.name();
     }
 
     public String getFirstName() {
-        return firstName;
+        return info.getFirstName();
     }
 
     public String getLastName() {
-        return lastName;
+        return info.getLastName();
     }
 
     public String getGender() {
-        return gender;
+        return info.getGender();
     }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return info.getPassword(); }
 
     public void setEmail(String email) {
-        this.email = email;
+        info.setEmail(email);
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        info.setFirstName(firstName);
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        info.setLastName(lastName);
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        info.setGender(gender);
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        info.setPassword(password);
     }
 }

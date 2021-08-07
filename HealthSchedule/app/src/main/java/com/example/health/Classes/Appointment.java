@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Appointment {
     private int time;
-    private String doctorID;
-    private String patientID;
+    private DoctorInfo doctorInfo;
+    private PatientInfo patientInfo;
 
-    Appointment(int time, String doctorID, String patientID) {
+    Appointment(int time, DoctorInfo doctorInfo, PatientInfo patientInfo) {
         this.time = time;
-        this.doctorID = doctorID;
-        this.patientID = patientID;
+        this.doctorInfo = doctorInfo;
+        this.patientInfo = patientInfo;
     }
 
     public boolean done() {
@@ -28,18 +28,18 @@ public class Appointment {
     }
 
     public int getTime() { return time; }
-    public String getDoctorID() { return doctorID; }
-    public String getPatientID() { return patientID; }
+    public DoctorInfo getDoctorInfo() { return doctorInfo; }
+    public PatientInfo getPatientInfo() { return patientInfo; }
 
     public void setTime(int time) {
         this.time = time;
     }
 
-    public void setDoctorID(String doctorID) {
-        this.doctorID = doctorID;
+    public void setDoctorInfo(DoctorInfo doctorInfo) {
+        this.doctorInfo = doctorInfo;
     }
 
-    public void setPatientID(String patientID) {
-        this.patientID = patientID;
+    public void setPatientInfo(PatientInfo patientInfo) {
+        this.patientInfo = patientInfo;
     }
 }

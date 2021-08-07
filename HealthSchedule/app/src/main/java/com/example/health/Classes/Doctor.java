@@ -6,18 +6,15 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Doctor extends User {
-    private String proficiency;
     private Map<Integer, Appointment> schedule;
 
     public Doctor() {
-        super();
-        proficiency = "";
+        info = new DoctorInfo();
         schedule = new TreeMap<>();
     }
 
     public Doctor(String email, String firstName, String lastName, String gender, String password) {
-        super(email, firstName, lastName, gender, password);
-        proficiency = "";
+        info = new DoctorInfo(email, firstName, lastName, gender, password);
         schedule = new TreeMap<>();
     }
 
@@ -30,7 +27,11 @@ public class Doctor extends User {
 
     public String getIdentity() { return "doctor"; }
 
-    public String getProficiency() { return proficiency; }
+    public String getProficiency() { return ((DoctorInfo) info).getProficiency(); }
 
     public Map<Integer, Appointment> getSchedule() { return schedule; }
+
+    public void setProficiency(String proficiency) {
+        ((DoctorInfo) info).setProficiency(proficiency);
+    }
 }

@@ -22,7 +22,6 @@ public class dashboardFirstFragment extends dashboardFragment {
     View view;
     User tag;
     ListView listView;
-    List<Appointment> appointments;
     List<String> contents;
 
     public dashboardFirstFragment() {
@@ -37,6 +36,7 @@ public class dashboardFirstFragment extends dashboardFragment {
     public void update(User user)
     {
         if (view == null) { tag = user; return; }
+        List<Appointment> appointments;
         if (user.getIdentity() == "patient")
             appointments = ((Patient) user).getAppointments();
         else

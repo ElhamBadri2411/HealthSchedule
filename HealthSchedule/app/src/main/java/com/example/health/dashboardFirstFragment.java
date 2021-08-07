@@ -22,27 +22,29 @@ public class dashboardFirstFragment extends dashboardFragment {
     View view;
     User tag;
     ListView listView;
-    List<String> contents;
+    List<Appointment> appointments;
 
     public dashboardFirstFragment() {
         // Required empty public constructor
-    }
-
-    public void addNewItem(String s) {
-        contents.add(s);
     }
 
     @Override
     public void update(User user)
     {
         if (view == null) { tag = user; return; }
-        List<Appointment> appointments;
         if (user.getIdentity() == "patient")
             appointments = ((Patient) user).getAppointments();
         else
             appointments = ((Doctor) user).appointments();
-        contents = new LinkedList<>();
-        //for (int i = 0; i < appointments.size(); i += 1)
+        List<String> contents = new LinkedList<>();
+        for (Appointment a : appointments)
+            if (user.getIdentity() == "patient")
+                contents.add(a.timeToString() + "\tDoctor " + a.getDoctorInfo().name());
+            else
+                contents.add(a.timeToString() + "\t" + a.getPatientInfo().name());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
+                                        , R.layout.fragment_dashboard_first, contents);
+        listView.setAdapter(adapter);
     }
 
     @Override

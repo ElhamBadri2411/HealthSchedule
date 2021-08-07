@@ -7,7 +7,13 @@ public class Appointment {
     private DoctorInfo doctorInfo;
     private PatientInfo patientInfo;
 
-    Appointment(int time, DoctorInfo doctorInfo, PatientInfo patientInfo) {
+    public Appointment() {
+        time = 0;
+        doctorInfo = new DoctorInfo();
+        patientInfo = new PatientInfo();
+    }
+
+    public Appointment(int time, DoctorInfo doctorInfo, PatientInfo patientInfo) {
         this.time = time;
         this.doctorInfo = doctorInfo;
         this.patientInfo = patientInfo;

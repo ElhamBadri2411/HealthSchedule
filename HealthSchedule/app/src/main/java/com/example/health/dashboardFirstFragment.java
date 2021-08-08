@@ -42,8 +42,10 @@ public class dashboardFirstFragment extends dashboardFragment {
                 contents.add(a.timeToString() + "\tDoctor " + a.getDoctorInfo().name());
             else
                 contents.add(a.timeToString() + "\t" + a.getPatientInfo().name());
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity()
-                                        , R.layout.fragment_dashboard_first, contents);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                contents);
         listView.setAdapter(adapter);
     }
 

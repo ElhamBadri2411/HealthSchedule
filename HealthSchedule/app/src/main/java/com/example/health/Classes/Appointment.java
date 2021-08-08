@@ -7,6 +7,13 @@ public class Appointment {
     private DoctorInfo doctorInfo;
     private PatientInfo patientInfo;
 
+    public static String Convert24To12(int time) {
+        String tmp;
+        if (time < 12 || time == 24) tmp = "am";
+        else tmp = "pm";
+        return ((time + 11) % 12 + 1) + tmp;
+    }
+
     public Appointment() {
         time = 0;
         doctorInfo = new DoctorInfo();
@@ -25,12 +32,7 @@ public class Appointment {
     }
 
     public String timeToString() {
-        String res = "";
-        if (time < 12) res = res + time + "am - ";
-        else res = res + time + "pm - ";
-        if (time + 1 < 12) res = res + (time + 1) + "am";
-        else res = res + (time + 1) + "pm";
-        return res;
+        return Convert24To12(time) + " - " + Convert24To12(time + 1);
     }
 
     public int getTime() { return time; }
